@@ -8,7 +8,7 @@
  */
 
 // 애플리케이션에서 사용할 포트 번호인 3000을 지정한다. (80번호는 HTTP, 443번호는 HTTPS)
-const port = 3000;
+const port = 3001;
 
 // http라는 특정 Node.js 모듈을 가져와 상수로 저장한다.
 const http = require('http');
@@ -31,6 +31,9 @@ const app = http.createServer((req, res) => {
 
   // 시스템은 클라이언트로부터 요청을 받았음을 기록하고
   console.log("Message received!");
+  console.log(req.method);  //
+  console.log(req.url);  //
+  console.log(req.header);  //
 
   // 콜백 함수의 res 매개변수를 사용해 처음 요청을 받은 사용자에게 다시 내용을보낸다.
   // 첫 번째 줄에서는 writeHead 메소드를 사용해 응답의 HTTP 헤더의 기본 속성을 정의한다.
