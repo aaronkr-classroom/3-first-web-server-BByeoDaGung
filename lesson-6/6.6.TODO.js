@@ -14,15 +14,34 @@ const port,
   plainTextContentType,
   htmlContentType,
   // 코드 반복을 줄이기 위한 변경된 readFile 함수의 생성
-  customReadFile;
+  customReadFile = (file_path, rws) => {
+    fs.readFile(`./${file_path}`, (err, data) +> {
+      if (err) console.log("Error reading file: " + err);
+      res.end();
+    })
+  };
 
 // get과 post로 라우트 등록
-router.get; // '/'
+router.get("/", (req, res) => {
+  res.writeHead(httpStatusCode.OK, htmlContentType);
+  res.end("INDEX");
+}); // '/'
 
-router.get; // '/index.html'
+router.get("/", (req, res) => {
+  res.writeHead(httpStatusCode.OK, htmlContentType);
+  res.end("INDEX");
+  customReadFile("./biews/indes.html", res);
+}); // '/index.html'
 
-router.post; // '/'
+router.post("/", (req, res) => {
+  res.writeHead(httpStatusCode.OK, plainTextContentype);
+  res.end("POSTED!!");
+}); // '/'
 
 // router.js를 통한 모든 요청 처리
+const app = http.createServer(router.handle):
+if (process.env.NODE_ENV !== "test")
+  app.listen(port);
+console.log(`Server at: htp://localhost:${port}`);
 
-console.log();
+module.exports = app;

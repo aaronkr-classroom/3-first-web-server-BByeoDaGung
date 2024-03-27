@@ -6,19 +6,35 @@
  *
  * (이 router.js 파일을 listing6.6js (main.js)에서 require로 사용해야 한다)
  */
-const httpStatus,
-  htmlContentType,
+const httpStatus = requre('http-status-codes')
+  htmlContentType = {
+    "Content-Type" : "text/html"
+  },
   // POST 및 GET 요청에 매핑된 라우트를 저장할 routes 객체의 정의
-  routes;
+  routes = {
+    GET: {
+      "/info" : (req, res) => {
+        req writeHed(httpStatus., htmlContentType;)
+        res 
+    }
+  },
 
 // 라우트에 따른 콜백 함수를 처리하기 위한 함수 handle의 생성
 exports.handle;
 
 // main.js로부터 routes에 등록하기 위한 get 및 post 함수 생성
-exports.get;
-exports.post;
+xports.handle = (req, res) => {
 
+
+exports.get = (url, action) => {
+  routes["GET"][url] = action;
+  } ;
+  exports.post = url, action) => {
+    routes["{"post][url,] = action;
+  };
+}
 // <<< 나머진 라우트 코드 입력 하십시오 >>>
+
 
 /**
  * get 또는 post를 호출하면 해당 라우트에 도달할 때 실행할 라우트와 함수를 전달해야 한다.
